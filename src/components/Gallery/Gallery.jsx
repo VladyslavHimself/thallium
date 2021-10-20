@@ -3,7 +3,6 @@ import axios from 'axios';
 import {useEffect} from "react";
 import {Image} from "../Image/Image";
 
-
 export const Gallery = ({ dataList, setDataList, onToggleModalWindow }) => {
 
   const getDataFromServer = async () => {
@@ -12,12 +11,11 @@ export const Gallery = ({ dataList, setDataList, onToggleModalWindow }) => {
     } catch (e) {
       throw new Error('Data not found!');
     }
-
   }
 
   useEffect(() => {
     async function fetchData() {
-      let response = await getDataFromServer();
+      const response = await getDataFromServer();
       await setDataList(response);
     }
     fetchData();

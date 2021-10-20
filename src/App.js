@@ -5,7 +5,6 @@ import {ModalWindow} from "./components/ModalWindow/ModalWindow";
 import {useState} from "react";
 
 function App() {
-
   const [isModalWindowOpened, setIsModalWindowOpened] = useState(false);
   const [currentFullImageUrl, setCurrentFullImageUrl] = useState('');
   const [dataList, setDataList] = useState([]);
@@ -16,7 +15,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={classes.App}>
       <Navigation />
       <Gallery onToggleModalWindow={onToggleModalWindow} dataList={dataList} setDataList={setDataList}/>
       {
@@ -25,5 +24,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
