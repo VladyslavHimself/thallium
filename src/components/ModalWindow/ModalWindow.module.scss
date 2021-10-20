@@ -1,0 +1,31 @@
+.modalWindow {
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 300px;
+  min-height: 300px;
+  padding: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-color: #f4f4f4;
+  box-shadow: 0 5px 15px 7px rgba(0,0,0,0.54);
+
+  img {
+    border: 1px solid black;
+  }
+
+  button {
+    width: 100px;
+    height: 20px;
+    margin-top: 20px;
+
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,20 @@
+.image {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+
+  img {
+    cursor: pointer;
+  }
+
+  &__info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &__button {
+    width: 25px;
+  }
+}
