@@ -3,7 +3,7 @@ import axios from 'axios';
 import {useEffect} from "react";
 import {Image} from "../Image/Image";
 
-export const Gallery = ({ dataList, setDataList, onToggleModalWindow }) => {
+const Gallery = ({ dataList, setDataList, onToggleModalWindow }) => {
 
   const getDataFromServer = async () => {
     try {
@@ -44,3 +44,5 @@ export const Gallery = ({ dataList, setDataList, onToggleModalWindow }) => {
     </div>
   );
 };
+
+export default Gallery;

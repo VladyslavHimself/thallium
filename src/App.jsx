@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import classes from './App.module.scss';
 import { Navigation } from './components/Navigation/Navigation';
-import { Gallery } from './components/Gallery/Gallery';
 import { ModalWindow } from './components/ModalWindow/ModalWindow';
+
+const Gallery = React.lazy(() => import('./components/Gallery/Gallery'));
 
 function App() {
   const [isModalWindowOpened, setIsModalWindowOpened] = useState(false);
@@ -23,21 +24,23 @@ function App() {
         filteredList={filteredList}
         setFilteredList={setFilteredList}
       />
-      {
-        filteredList.length === 0 ? (
-          <Gallery
-            onToggleModalWindow={onToggleModalWindow}
-            dataList={dataList}
-            setDataList={setDataList}
-          />
-        ) : (
-          <Gallery
-            onToggleModalWindow={onToggleModalWindow}
-            dataList={filteredList}
-            setDataList={setFilteredList}
-          />
-        )
-      }
+        {
+          filteredList.length === 0 ? (
+            <React.Suspense fallback={<h4>Loading...</h4>}>
+              <Gallery
+                onToggleModalWindow={onToggleModalWindow}
+                dataList={dataList}
+                setDataList={setDataList}
+              />
+            // </React.Suspense>
+          ) : (
+            <Gallery
+              onToggleModalWindow={onToggleModalWindow}
+              dataList={filteredList}
+              setDataList={setFilteredList}
+            />
+          )
+        }
       {
         isModalWindowOpened ? (
           <ModalWindow
