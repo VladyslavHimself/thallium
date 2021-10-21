@@ -1,8 +1,9 @@
 import classes from './ModalWindow.module.scss';
+import locale from "../../common/locales/en-US.js";
 
-export const ModalWindow = ({ setModalWindowState, ...props}) => (
+export const ModalWindow = ({ setModalWindowState, imageUrl}) => (
   <div className={classes.modalWindow}>
-    <img src={props.imageUrl} alt="fullPhoto"/>
-    <button onClick={() => setModalWindowState(false)}>Close</button>
+    <img src={imageUrl} alt="fullPhoto"/>
+    <button onClick={() => setModalWindowState(false)}>{locale.close}</button>
   </div>
 );

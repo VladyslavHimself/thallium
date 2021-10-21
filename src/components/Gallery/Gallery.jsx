@@ -2,6 +2,7 @@ import classes from "./Gallery.module.scss";
 import axios from 'axios';
 import {useEffect} from "react";
 import {Image} from "../Image/Image";
+import locale from "../../common/locales/en-US.js";
 
 const Gallery = ({ dataList, setDataList, onToggleModalWindow }) => {
 
@@ -9,7 +10,7 @@ const Gallery = ({ dataList, setDataList, onToggleModalWindow }) => {
     try {
       return await axios.get(process.env.REACT_APP_DB_PHOTOS).then((data) => data.data);
     } catch (e) {
-      throw new Error('Data not found!');
+      throw new Error(locale.dataNotFound);
     }
   };
 
@@ -19,7 +20,7 @@ const Gallery = ({ dataList, setDataList, onToggleModalWindow }) => {
       await setDataList(response);
     }
     fetchData();
-  }, []);
+  }, [setDataList]);
 
   const onDeleteHandler = (idx) => {
     setDataList(dataList.filter((item) => item.id !== idx));

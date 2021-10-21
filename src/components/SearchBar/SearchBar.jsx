@@ -1,10 +1,10 @@
 import classes from './SearchBar.module.scss';
 import {useState} from "react";
+import locale from "../../common/locales/en-US.js";
 
-export const SearchBar = ({ dataList, setDataList, filteredList, setFilteredList }) => {
+export const SearchBar = ({ dataList, setFilteredList }) => {
 
   const [searchInputValue, setSearchInputValue] = useState('');
-
 
   const onChangeInputHandler = (inputValue) => {
     setSearchInputValue(inputValue);
@@ -28,7 +28,7 @@ export const SearchBar = ({ dataList, setDataList, filteredList, setFilteredList
       <input
         type="text"
         className={classes.searchBar__input}
-        placeholder={'Enter album id'}
+        placeholder={locale.enterAlbumId}
         onChange={e => onChangeInputHandler(e.target.value)}
       />
       <button className={classes.searchBar__button} onClick={onClickSearchHandler}>Search</button>

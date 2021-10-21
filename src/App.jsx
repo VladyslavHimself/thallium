@@ -5,7 +5,7 @@ import { ModalWindow } from './components/ModalWindow/ModalWindow';
 
 const Gallery = React.lazy(() => import('./components/Gallery/Gallery'));
 
-function App() {
+const App = () => {
   const [isModalWindowOpened, setIsModalWindowOpened] = useState(false);
   const [currentFullImageUrl, setCurrentFullImageUrl] = useState('');
   const [dataList, setDataList] = useState([]);
@@ -32,7 +32,7 @@ function App() {
                 dataList={dataList}
                 setDataList={setDataList}
               />
-            // </React.Suspense>
+            </React.Suspense>
           ) : (
             <Gallery
               onToggleModalWindow={onToggleModalWindow}
@@ -42,12 +42,12 @@ function App() {
           )
         }
       {
-        isModalWindowOpened ? (
+        isModalWindowOpened && (
           <ModalWindow
             imageUrl={currentFullImageUrl}
             setModalWindowState={setIsModalWindowOpened}
           />
-        ) : null
+        )
       }
     </div>
   );
