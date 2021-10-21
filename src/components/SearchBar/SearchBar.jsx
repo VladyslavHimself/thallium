@@ -21,8 +21,6 @@ export const SearchBar = ({ dataList, setDataList, filteredList, setFilteredList
     });
 
     setFilteredList(filteredData);
-
-    console.log(filteredData);
   };
 
   return (
